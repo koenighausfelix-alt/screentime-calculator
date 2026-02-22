@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Bildschirmzeit-Rechner</title>
+  <title>Screentime-Calculator</title>
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -25,9 +25,9 @@
 </head>
 <body>
 
-  <h2>Bildschirmzeit-Rechner</h2>
+  <h2>Screentime-Calculator</h2>
 
-  <label for="dailyTime">Tägliche Bildschirmzeit (in Stunden):</label><br>
+  <label for="dailyTime">Daily Screentime-Average (in hours):</label><br>
   <input type="number" id="dailyTime" step="0.1" min="0">
   <button onclick="calculate()">Berechnen</button>
 
@@ -40,7 +40,7 @@
 
       if (dailyTime === "" || dailyTime < 0) {
         document.getElementById("result").innerText =
-          "Zeit in Stunden eingeben.";
+          "Time in hours.";
         return;
       }
 
@@ -48,8 +48,8 @@
       const totalDays = totalHours / 24;
 
       document.getElementById("result").innerText =
-        `Wenn du so weitermachst, wirst du in 10 Jahren weitere ${totalHours.toLocaleString()} Stunden ` +
-        `(${totalDays.toFixed(1)} Tage) an deinem Handy verbracht haben.`;
+        `If you continue like this for the next 10 years, you'll have spent ${totalHours.toLocaleString()} hours ` +
+        `(${totalDays.toFixed(1)} days) from those 10 years on your phone.`;
     }
   </script>
 
