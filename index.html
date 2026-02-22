@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bildschirmzeit-Rechner</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 16px;
+      max-width: 600px;
+    }
+    input, button {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+    button {
+      margin-left: 6px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Bildschirmzeit-Rechner</h2>
+
+  <label for="dailyTime">Tägliche Bildschirmzeit (in Stunden):</label><br>
+  <input type="number" id="dailyTime" step="0.1" min="0">
+  <button onclick="calculate()">Berechnen</button>
+
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      const dailyTime = document.getElementById("dailyTime").value;
+      const daysIn10Years = 3640;
+
+      if (dailyTime === "" || dailyTime < 0) {
+        document.getElementById("result").innerText =
+          "Zeit in Stunden eingeben.";
+        return;
+      }
+
+      const totalHours = dailyTime * daysIn10Years;
+      const totalDays = totalHours / 24;
+
+      document.getElementById("result").innerText =
+        `Wenn du so weitermachst, wirst du in 10 Jahren weitere ${totalHours.toLocaleString()} Stunden ` +
+        `(${totalDays.toFixed(1)} Tage) an deinem Handy verbracht haben.`;
+    }
+  </script>
+
+</body>
+</html>
